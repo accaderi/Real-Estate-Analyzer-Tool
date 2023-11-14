@@ -1,0 +1,135 @@
+body {
+    margin: 2rem;
+    background-color: gainsboro;
+}
+
+.centered-li {
+    display:flex;
+    justify-content: center;
+}
+
+#chat {
+    position:relative;
+    top:0x;
+    left:0px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display:block;
+    width: 100%;
+    height: 250px;
+    /* background-color: rgb(59, 53, 53); */
+    background-color: rgb(23, 58, 35);
+    color:rgb(25, 216, 60);
+    font-weight: bold;
+    font-family: monospace;
+    border-radius: 10px 10px 10px 10px;
+    padding-bottom: 10px;
+    padding-top: 1px;
+    margin-left: 0px;
+    
+}
+
+#chat-messages {
+    position:relative;
+    top:-188px;
+    left:3%;
+    grid-column: 1;
+    grid-row: 1;
+    height: 228px;
+    width: 93%;
+    overflow-y: scroll;
+    background-color: transparent;
+    color:rgb(50,255,0);
+    overflow-y: hidden;
+    padding-left: 5px;
+}
+
+#msg {
+    display: block;
+    position:relative;
+    top:0px;
+    left:0px;
+    /* clear: both; */
+    width: 80%;
+    height: 20px;
+    /* background-color: rgb(59, 53, 53); */
+    background-color: rgb(215, 112, 211);
+    color:rgb(25, 216, 60);
+    font-weight: bold;
+    font-family: monospace;
+    border-left: 10px;
+    margin-left: 39px;
+    padding-bottom: 5px;
+    border-radius: 0 0 10px 0;
+    z-index: 2;
+    
+}
+
+#msglst{
+    display: block;
+    position:relative;
+    top:-200px;
+    left:21px;
+    margin-left: 0px;
+    background-color: transparent;
+    color:rgb(50,255,0);
+    font-weight: bold;
+    font-family: monospace;
+}
+
+.side_mon{
+    display: block;
+    position:relative;
+    top:-204px;
+    left:21px;
+    margin-left: 0px;
+    background-color: transparent;
+    color:rgb(50,255,0);
+}
+
+.cursor{
+    position:relative;
+    top:69px;
+    left:0px;
+    width: 2%;
+    background-color: transparent;
+    color:rgb(25, 216, 60);
+    margin-top: 166px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    z-index: 1;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.fade_in_el {
+    animation: fadeIn 1s;
+    list-style: none;
+    padding-top: 1px;
+    
+}
+
+li{
+    list-style: none;
+    
+}
+
+pre{
+    margin: 0px;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.fade_out_el{
+    animation: fadeOut 2s;
+    padding-top: 1px;
+    opacity: 0;
+}

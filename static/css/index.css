@@ -1,0 +1,25 @@
+.card {
+    width: 20rem;
+    min-width: 20rem;
+}
+.card-column {
+    padding: 0.5rem; /* Add padding to separate the cards */
+}
+
+.row{
+    display: flex;
+}
+
+.card-body{
+    padding: 0%;
+}
+
+.card-content {
+    padding: 1.25rem;
+}
+
+.card-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+  }
