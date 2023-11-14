@@ -1,0 +1,44 @@
+<head>
+<link rel="stylesheet" href="{{url_for('static', filename='css/navbar.css')}}">
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary rounded sticky-top">
+  <div class="container-fluid">
+    <a class=" navbar-brand d-inline-flex flex-column" href="{{url_for('index')}}">
+      <span class="brand-line1">Real Estate</span>
+      <span class="brand-line2">Analyzer Tool</span>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-2">
+        <li class="nav-item">
+          <a id="nav_home" aria-current="page" class="nav-link" href="{{url_for('index')}}">Home</a>
+        <li class="nav-item">
+          <a id="nav_scrapping" class="nav-link" href="{{url_for('scrapping')}}">Data collector</a>
+        </li>
+        <li class="nav-item">
+          <a id="nav_data" class="nav-link" href="{{url_for('data')}}">Data</a>
+        </li>
+        <li class="nav-item">
+          <a id="nav_charts" class="nav-link" href="{{url_for('charts')}}">Charts</a>
+        </li>
+        <li class="nav-item">
+          <a id="nav_pdf" class="nav-link" href="{{url_for('pdf_maker')}}">Pdf maker</a>
+        </li>
+        <li class="nav-item">
+          <a id="nav_settings" class="nav-link" href="{{url_for('func_settings')}}">Settings</a>
+        </li>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

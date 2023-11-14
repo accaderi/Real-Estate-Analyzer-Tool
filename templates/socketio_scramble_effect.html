@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal</title>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/terminal.css')}}">
+</head>
+<body style="background: transparent;">
+    <!-- <div class="side_mon" style="display:block;">
+    </div> -->
+    {% if terminal_logo_done == 1 %}
+    <p id="scrapping" style="display: none;">{{terminal_logo_done}}<p>
+    <script>console.log('terminal_logo+')</script>
+    <div id="chat">
+        <p class="cursor">></p>
+        <ul id="chat-messages">
+            <li>&nbsp</li>
+            <li class="fade_in_el centered-li"><pre>/^--^\     /^--^\     /^--^\</pre></li>
+            <li class="fade_in_el centered-li"><pre>\____/     \____/     \____/</pre></li>
+            <li class="fade_in_el centered-li"><pre>/      \   /      \   /      \</pre></li>
+            <li class="fade_in_el centered-li"><pre>|        | |        | |        |</pre></li>
+            <li class="fade_in_el centered-li"><pre>\__  __/   \__  __/   \__  __/</pre></li>
+            <li class="fade_in_el centered-li"><pre>|^|^|^|^|^|^|^|^|^|^|^|^|^|^\ \^|^|^|^/ /^|^|^|^|^\ \^|^|^|^|^|^|^|^|^|^|^|^|^|</pre></li>
+            <li class="fade_in_el centered-li"><pre>|_|_|_|_|_|_|_|_|_|_|_|_|_|_|\ \|_|_|/ /|_|_|_|_|_|\ \|_|_|_|_|_|_|_|_|_|_|_|_|</pre></li>
+            <li class="fade_in_el centered-li"><pre>|  ___          _   ___    _ /_/    _\ \        _  /_/        _               |</pre></li>
+            <li class="fade_in_el centered-li"><pre>| | _ \___ __ _| | | __|__| |_ __ _| |_/___    /_\  _ _  __ _| |_  _____ _ _  |</pre></li>
+            <li class="fade_in_el centered-li"><pre>| |   / -_) _` | | | _|(_-&lt;  _/ _` |  _/ -_)  / _ \| ' \/ _` | | |/ / -_) '_| |</pre></li>
+            <li class="fade_in_el centered-li"><pre>| |_|_\___\__,_|_| |___/__/\__\__,_|\__\___| /_/ \_\_||_\__,_|_|   /\___|_|   |</pre></li>
+            <li class="fade_in_el centered-li"><pre>|______________________________________________________________/__/___________|</pre></li>
+            <li class="fade_in_el centered-li"><pre>| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |</pre></li>
+            <li class="fade_in_el centered-li"><pre></pre></li>
+            {% else %}
+            <script>console.log('terminal_logo_not')</script>
+            <div id="chat">
+                <p class="cursor">></p>
+                <ul id="chat-messages">
+            <li>&nbsp</li>
+            <li>&nbsp</li>
+            <li>&nbsp</li>
+            <li>&nbsp</li>
+            <li>&nbsp</li>
+            <li>&nbsp</li>
+            <li>&nbsp</li>
+            <li>&nbsp</li>
+            <li>&nbsp</li>
+            <li>&nbsp</li>
+            <li>&nbsp</li>
+            <li>&nbsp</li>
+            <li>&nbsp</li>
+            <li>&nbsp</li>
+        {% endif %}
+        </ul>
+        <!-- <li class="side_mon">WWWWWWWWWWewewewewe</li> -->
+        <li id="msglst" class="fade_out_el"></li>
+        </div>
+<script src="static/script/terminal.js"></script>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container mt-5">
+  <form id="settings_form" method = 'POST' action = "{{url_for('func_settings')}}">
+      <div class="accordion" id="accordionGeneral">
+          <div class="accordion-item">
+              <h2 class="accordion-header">
+                  <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseZero"
+                  aria-expanded="true"
+                  aria-controls="collapseZero"
+                  >
+                  <h6>Settings</h6>
+              </button>
+          </h2>
+          <div
+          id="collapseZero"
+          class="accordion-collapse collapse show"
+            data-bs-parent="#accordionTable"
+            >
+            <div class="accordion-body ms-2">
+              <div class="row justify-content-left">
+                <label for="web_browser" id="web_browser_label" class="form-label mt-3"
+                >Choose Your Web Browser</label
+                >
+                <div class="col-sm-3 mt-3">
+                  <select
+                  id="web_browser"
+                  name="web_browser"
+                  class="form-select"
+                  aria-label="Default select example"
+                  >
+                  <option selected value="0">Chrome</option>
+                  <option value="1">Edge</option>
+                </select>
+              </div>
+              </div>
+              <div class="row justify-content-left">
+              <div class="col mt-2 mb-2">
+                <label for="mapbox_api" id="mapbox_api_label" class="form-label mt-4"
+                >Mapbox API Key</label
+                >
+                <input
+                name="mapbox_api"
+                type="text"
+                class="form-control mt-3"
+                id="mapbox_api"
+                maxlength="84"
+                placeholder="YOUR ACCESS TOKEN"
+                  />
+                </div>
+                <div class="row justify-content-left">
+                  <label for="ingatlancom_user" id="ingatlancom_user_label" class="form-label mt-4"
+                  >User Credentials for Ingatlan.com</label
+                  >
+                </div>
+                <div class="row justify-content-left">
+                  <div class="col-sm-3">
+                  <input
+                  name="userName"
+                  type="email"
+                  class="form-control mt-3"
+                  id="userName"
+                  placeholder="E-mail"
+                  />
+                </div>
+                <div class="col-sm-3 mb-3">
+                  <input
+                  name="passWord"
+                  type="password"
+                  class="form-control mt-3"
+                  id="passWord"
+                  placeholder="Password"
+                  />
+                </div>
+                </div>
+                <div
+                    class="col-sm-3 d-flex justify-content-center mx-auto content-md-center"
+                  >
+                    <button
+                      class="btn fixed_w_btn btn-primary mt-4 mb-3 ms-2 text-center"
+                      id="subSubmit"
+                      type="button"
+                      onclick="check_webad_search()"
+                      >
+                      &nbsp;&nbsp;Save&nbsp;&nbsp;
+                    </button>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      </form>
+  </div>
+
+        <!-- Modal -->
+        <div
+        class="modal fade"
+      data-toggle="modal"
+      id="Modal_1"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Info</h5>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                id="bck"
+              >
+                Back
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="cont"
+                onclick="document.getElementById('mainform').submit();"
+              >
+                Start scraping
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+          if (document.querySelector('.active')){
+            document.querySelector('.active').classList.remove('active');
+          } else {};
+          document.getElementById('nav_settings').classList.add('active');
+          var settings = {{ settingsJSON | safe }};
+      </script>
+  <script src="static/script/settings.js"></script>
+{% endblock %}

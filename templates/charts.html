@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block head %}
+<script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+{% endblock %}
+{% block body %}
+    <!-- <h1 style="text-align: center;">Hi there!</h1> -->
+    
+    <div class="row p-4">
+        <div class="card mb-4 mx-auto" style="width: 90%;" data-aos="fade-left">
+            <div class="card-body">
+                <h4 class="mt-2">Number of properties based on their Areas</h4>
+                <div id="NopropertiesArea" class="mt-4 mb-3"></div>
+                <p class="card-text">{{titles_txt_orig['ch_area'][2]}}</p>
+                </div>
+            </div>
+            <div class="card mb-4 mx-auto" style="width: 90%;" data-aos="fade-left">
+                <div class="card-body">
+                    <h4 class="mt-2">Number of properties based on their {{ ch_price }}Prices</h4>
+                    <div id="NopropertiesPrices" class="mt-4 mb-3"></div>
+                    <p class="card-text">{{titles_txt_orig['ch_price'][2]}}<br></p>
+                </div>
+            </div>
+            <div class="card mb-4 mx-auto" style="width: 90%;" data-aos="fade-left">
+                <div class="card-body">
+                    <h4 class="mt-2">Number of properties based on their {{ ch_price_color }}Prices<br></h4>
+                        <p style="line-height: 5px;">Color coded the number of rooms including half rooms</p>
+                    <div id="NopropertiesColor" class="mt-4 mb-3"></div>
+                    <p class="card-text">{{titles_txt_orig['ch_price_color'][2]}}</p>
+                    </div>
+                </div>
+                <div class="card mb-4 mx-auto" style="width: 90%;" data-aos="fade-left">
+                    <div class="card-body">
+                        <h4 class="mt-2">Number of properties based on their {{ ch_unitpr }}Prices</h4>
+                        <div id="Nopropertiesm2prices" class="mt-4 mb-3"></div>
+                        <p class="card-text">{{titles_txt_orig['ch_unitpr'][2]}}</p>
+                </div>
+            </div>
+        <div class="card mb-4 mx-auto" style="width: 90%;" data-aos="fade-left">
+            <div class="card-body">
+                <h4 class="mt-2">{{ ch_price_color }}Prices of properties based on their Areas</h4>
+                <div id="HeatHist" class="mt-4 mb-3"></div>
+                <p class="card-text">{{titles_txt_orig['ch_heathist'][2]}}</p>
+                </div>
+            </div>
+            <div class="card mb-4 mx-auto" style="width: 90%;" data-aos="fade-left">
+                <div class="card-body">
+                    <h4 class="mt-2">{{ ch_unitpr }}Price in the view of the Area<br></h4>
+                        <p style="line-height: 5px;">size: {{ ch_scatter[0] }}, {{ ch_scatter[1] }}</p>
+                    <div id="UnitprArea" class="mt-4 mb-3"></div>
+                    <p class="card-text">{{titles_txt_orig['ch_scatter'][2]}}</p>
+            </div>
+        </div>
+        <div class="card mb-4 mx-auto" style="width: 90%;" data-aos="fade-left">
+            <div class="card-body">
+                <h4 class="mt-2">Choropleth showing the Locations<br></h4>
+                <p style="line-height: 5px;">size: Quantity</p>
+                <div id="Chorol" class="mt-4 mb-3"></div>
+                <p class="card-text">{{titles_txt_orig['ch_choropleth'][2]}}</p>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            if (document.querySelector('.active')){
+            document.querySelector('.active').classList.remove('active');
+            } else {};
+            document.getElementById('nav_charts').classList.add('active');
+            /*
+            To make the newPlot dynamic (change the newPlot size with browser window size)
+            need to use the Plotly.newPlot(graphDiv, data, layout, config)
+            graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+            returns a single object with keys for data, layout, config and frames
+            with defaults to {data: [], layout: {}, config: {}, frames: []}.
+            https://stackoverflow.com/questions/71511916/flask-plotly-responsive-in-browser
+            */
+           var NopropertiesArea = {{ chart_data[0] | safe}};
+           var config = {responsive: true};
+           Plotly.newPlot("NopropertiesArea", NopropertiesArea['data'], NopropertiesArea['layout'], config);
+           
+           var NopropertiesPrices = {{ chart_data[1] | safe}};
+           Plotly.newPlot("NopropertiesPrices", NopropertiesPrices['data'], NopropertiesPrices['layout'], config);
+           
+           var NopropertiesColor = {{ chart_data[2] | safe}};
+           Plotly.newPlot("NopropertiesColor", NopropertiesColor['data'], NopropertiesColor['layout'], config);
+           
+           var Nopropertiesm2prices = {{ chart_data[3] | safe}};
+           Plotly.newPlot("Nopropertiesm2prices", Nopropertiesm2prices['data'], Nopropertiesm2prices['layout'], config);
+       
+        var HeatHist = {{ chart_data[4] | safe}};
+        Plotly.newPlot("HeatHist", HeatHist['data'], HeatHist['layout'], config);
+        
+        var UnitprArea = {{ chart_data[5] | safe}};
+        Plotly.newPlot("UnitprArea", UnitprArea['data'], UnitprArea['layout'], config);
+    </script>
+        {% if chart_data[6] %}
+        <script>
+        var Chorol = {{ chart_data[6] | safe}};
+        Plotly.newPlot("Chorol", Chorol['data'], Chorol['layout'], config);
+       </script>
+       {% endif %}
+
+{% endblock %}

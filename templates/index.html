@@ -1,0 +1,346 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+<style>
+  ol > li::marker {
+            font-weight: bold;
+        }
+
+  ol > li, .mb10{
+      margin-bottom: 10px;
+  }
+
+  h4 {
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  
+  h5 {
+    margin-bottom: 10px;
+    margin-top: 0px;
+  }
+
+</style>
+{% endblock %}
+{% block body %}
+<div class="container mt-5">
+  <div class="row justify-content-md-center">
+            <div class="accordion" id="accordionTable">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseZero"
+                  aria-expanded="false"
+                  aria-controls="collapseZero"
+                  >
+                  <h5>Introduction</h5>
+              </h2>
+              <div
+              id="collapseZero"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionTable"
+              >
+              <div class="accordion-body">
+                <div class="container">
+                  <h4><strong>Introducing Real Estate Analyzer Tool - Your Data Visualization and Reporting Solution</strong></h4>
+                  <p>Are you tired of manually collecting data from various websites, struggling to organize it, and then presenting it in a compelling format? Look no further. With Real Estate Analyzer Tool, your data collection, visualization, and reporting tasks become a breeze.</p>
+                  <h5>Key Features:</h5>
+                  <ol type="1">
+                      <li><strong>Data Scraping:</strong> Real Estate Analyzer Tool seamlessly scrapes data from supported websites, ensuring you have the most up-to-date information at your fingertips.</li>
+                      <li><strong>Data Organization:</strong> Say goodbye to spreadsheet chaos. Our application efficiently organizes the collected data, making it easy to access and work with.</li>
+                      <li><strong>Dynamic Charts:</strong> Transform raw data into stunning, interactive charts, enabling you to visualize trends and insights at a glance.</li>
+                      <li><strong>Informative Tables:</strong> Create customizable tables that are both informative and aesthetically pleasing, ensuring your data is presented with clarity.</li>
+                      <li><strong>PDF Reports:</strong> Generate professional PDF reports with just a few clicks, incorporating your charts, tables, and additional insights into a polished document.</li>
+                  </ol>
+                  
+                  <h5>Why Choose Real Estate Analyzer Tool?</h5>
+                  <ul>
+                      <li class="mb10"><strong>Efficiency:</strong> Save time and effort by automating the data collection and organization process.</li>
+                      <li class="mb10"><strong>Visualization:</strong> Present your data with flair and impact, thanks to our dynamic charts and informative tables.</li>
+                      <li class="mb10"><strong>Professional Reports:</strong> Impress your colleagues, clients, or superiors with well-structured PDF reports that showcase your findings effectively.</li>
+                      <li class="mb10"><strong>Accessibility:</strong> Easy-to-use interface, ensuring that users of all backgrounds can harness the power of data.</li>
+                  </ul>
+                  <p>With Real Estate Analyzer Tool, data collection, analysis, and reporting have never been more accessible. Try it today and unlock the potential of your data like never before.</p>
+                  <p><strong>Real Estate Analyzer Tool - Turning Data into Insights.</strong></p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+          <div class="accordion" id="accordionExample">
+          <div class="accordion-item mt-5">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseOne"
+                >
+                <h6>Data collector</h6>
+              </button>
+            </h2>
+            <div
+            id="collapseOne"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionExample"
+            >
+            <div class="accordion-body">
+              <div class="container">
+                <h4><strong>Data Creator: Your Dynamic Web Data Scraping Companion</strong></h4>
+                <p>The heart of your application, the "Data Creator," is a robust and versatile tool designed to gather essential information from various websites. It is divided into four main sections to make the process as straightforward as possible while accommodating the dynamic nature of websites, potential interruptions, and user involvement:</p>
+                <ol type="1">
+                  <li><strong>Site Selector</strong></li>
+                    <ul>
+                        <li class="mb10">Choose your desired website source from a list of supported options.</li>
+                        <li class="mb10">Stay flexible as new websites become available, ensuring your data collection remains up-to-date.</li>
+                    </ul>
+                    <li><strong>Web Search Section</strong></li>
+                    <ul>
+                        <li class="mb10">Simply copy the complete link from your browser after navigating to the specific webpage you wish to scrape.</li>
+                        <li class="mb10">Connect with the exact data you need, no matter how deep or complex the webpage structure.</li>
+                    </ul>
+                    <li><strong>Search Parameters</strong></li>
+                    <ul>
+                        <li class="mb10">Customize your web scraping process by filling in the required search parameters, such as keywords, date ranges, or specific categories.</li>
+                        <li class="mb10">Start the search using your app, tailoring the data collection to your precise needs.</li>
+                    </ul>
+                    <li><strong>Terminal Section</strong></li>
+                    <ul>
+                        <li class="mb10">Monitor the progress of the scraping process in real-time as the app works its magic.</li>
+                        <li class="mb10">Be prepared to respond to any questions that may arise during the search, allowing you to guide the process to meet your goals effectively.</li>
+                    </ul>
+                </ol>
+                <h5>Challenges and User Interaction</h5>
+                <p>In the world of web scraping, challenges are a part of the journey. The Data Creator section equips you to handle potential interruptions and unexpected events:</p>
+                <ul>
+                  <li class="mb10"><strong>Dynamic Websites:</strong> Websites are dynamic, constantly changing their structure. Data Creator adapts to these changes, ensuring data consistency.</li>
+                  <li class="mb10"><strong>Unreliable Internet Connection:</strong> Understand that internet connections can be unreliable. Data Creator can resume where it left off, minimizing data loss.</li>
+                  <li class="mb10"><strong>Internal Errors:</strong> In case of internal errors, the app provides guidance to troubleshoot or, if necessary, start the process anew.</li>
+                  <li class="mb10"><strong>User Involvement:</strong> Be prepared to answer questions and provide input when required, giving you control over the scraping process.</li>
+                </ul>
+                <p>Should you encounter a rare error or an unforeseen situation, Data Creator enables you to restart the entire procedure, maintaining your data accuracy and collection integrity.</p>
+                <p>Empower yourself with Data Creator to harness the potential of web data, making web scraping a smoother and more efficient process.</p>
+              </div>              
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item mt-3">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+                >
+                <h6>Data</h6>
+              </button>
+            </h2>
+            <div
+            id="collapseTwo"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionExample"
+            >
+            <div class="accordion-body">
+              <div class="container">
+                <h4><strong>Data Section: Unleash the Power of Your Collected Data</strong></h4>
+                <p>In the "Data Section" of your application, you can explore and analyze your collected data effortlessly through six distinct tables (dataframes), each providing unique insights and functionality:</p>
+                <ol type="1">
+                  <li><strong>Key Data Details</strong></li>
+                    <ul>
+                        <li class="mb10">This table provides a snapshot of the key details of your collected data, giving you an overview of the dataset's structure and content.</li>
+                    </ul>
+                    <li><strong>Maximum Values</strong></li>
+                    <ul>
+                        <li class="mb10">Discover the maximum values within each column, gaining insight into the upper bounds of your data's numeric attributes.</li>
+                    </ul>
+                    <li><strong>Minimum Values</strong></li>
+                    <ul>
+                        <li class="mb10">Uncover the minimum values within each column, highlighting the lower limits of your data's numeric attributes.</li>
+                    </ul>
+                    <li><strong>Top 20 Descriptive Rows</strong></li>
+                    <ul>
+                        <li class="mb10">Access the top 20 rows of your data, sorted in descending order based on the "Price" column and two other dynamic columns (which adapt to your collected data). This table allows you to quickly identify the most valuable entries.</li>
+                    </ul>
+                    <li><strong>Bottom 20 Descriptive Rows</strong></li>
+                    <ul>
+                        <li class="mb10">Similar to the previous table, but sorted in ascending order, allowing you to explore the least expensive or relevant entries in your dataset.</li>
+                    </ul>
+                    <li><strong>Median and Neighboring Rows</strong></li>
+                    <ul>
+                        <li class="mb10">Dive deeper into the data by exploring it based on the middle value (if it exists) or the values closest to the mean of the "Area" column. This table displays these values and a maximum of 9 rows in both descending and ascending orders, enabling you to analyze data distribution effectively.</li>
+                    </ul>
+                </ol>
+                <p>Whether you're interested in a high-level overview of your data or need to perform in-depth analysis, these tables provide a comprehensive toolkit for uncovering insights, trends, and anomalies within your collected data. Explore, analyze, and extract value from your data with ease in the "Data Section."</p>
+                </div>
+                </div>
+              </div>
+            </div>
+          <div class="accordion-item mt-3">
+            <h2 class="accordion-header">
+              <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+              >
+              <h6>Charts</h6>
+            </button>
+          </h2>
+            <div
+            id="collapseThree"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionExample"
+            >
+            <div class="accordion-body">
+              <div class="container">
+                <h4><strong>Charts Section: Visualize Your Data with Precision and Clarity</strong></h4>
+                <p>In the "Charts Section" of your application, you can harness the power of visualization to gain profound insights from your collected data. This section offers a versatile array of seven diagrams, each designed to provide you with a unique perspective on your data:</p>
+                <ol type="1">
+                  <li><strong>Property Distribution by Area</strong></li>
+                    <ul>
+                        <li class="mb10">Chart the number of properties based on their areas, offering a clear overview of area-related trends in your dataset.</li>
+                    </ul>
+                    <li><strong>Property Distribution by Price</strong></li>
+                    <ul>
+                        <li class="mb10">Visualize the distribution of properties based on their prices, allowing you to identify price-related patterns.</li>
+                    </ul>
+                    <li><strong>Price vs. Rooms Histogram</strong></li>
+                    <ul>
+                        <li class="mb10">Similar to the previous chart, but color-coded to represent the number of rooms (including half-rooms), providing insights into room configurations across different price ranges.</li>
+                    </ul>
+                    <li><strong>Unit Price or Monthly Rental Price</strong></li>
+                    <ul>
+                        <li class="mb10">The chart displays either unit prices or monthly rental prices, depending on the collected data, to visualize the distribution of properties, facilitating pricing analysis.</li>
+                    </ul>
+                    <li><strong>Heat Map with Area-Based Histograms</strong></li>
+                    <ul>
+                        <li class="mb10">Utilize a heat map combined with area-based histograms to reveal the relationship between unit price or monthly rental price and property area, highlighting area-specific property concentration.</li>
+                    </ul>
+                    <li><strong>Scatter Plot Analysis</strong></li>
+                    <ul>
+                        <li class="mb10">Delve into the unit price or monthly rental price of properties as they relate to their areas. The size and color of data points represent additional aspects of the data, offering multidimensional insights.</li>
+                    </ul>
+                    <li><strong>Location Choropleth</strong></li>
+                    <ul>
+                        <li class="mb10">This interactive map displays the geographical distribution of properties found in the dataframe. The size of markers indicates the number of properties at each location. To enable this chart, ensure you've provided your Mapbox API key in the app settings.</li>
+                    </ul>
+                </ol>
+                <p>With these powerful visualization tools, you can gain a deeper understanding of your data, identify trends, and make informed decisions. The "Charts Section" empowers you to transform your data into valuable insights that drive your objectives effectively.</p>
+              </div>
+              </div>
+                    
+              </div>
+            </div>
+          <div class="accordion-item mt-3">
+            <h2 class="accordion-header">
+              <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFour"
+              aria-expanded="false"
+              aria-controls="collapseFour"
+              >
+              <h6>Pdf maker</h6>
+            </button>
+          </h2>
+            <div
+            id="collapseFour"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionExample"
+            >
+            <div class="accordion-body">
+              <div class="container">
+                <h4><strong>PDF Maker Section: Craft Customized Reports with Ease</strong></h4>
+                <p>In the "PDF Maker Section" of your application, you have the power to create tailor-made PDF reports that encapsulate your data-driven insights. This section offers a flexible and user-friendly approach to generating professional reports by combining tables and charts. Here's what you can do:</p>
+                <ol type="1">
+                  <li><strong>Choose Your Content</strong></li>
+                    <ul>
+                        <li class="mb10">Select the tables and charts you wish to include in your PDF report based on your specific needs and preferences. Whether it's tables, charts, or both, you have complete control over your content selection.</li>
+                    </ul>
+                    <li><strong>Customize Titles and Descriptions</strong></li>
+                    <ul>
+                        <li class="mb10">While the application provides default titles, subtitles, and descriptions for your charts, you can modify these to better convey your insights and findings. Tailor the narrative to suit your unique story.</li>
+                    </ul>
+                    <li><strong>Add a Unique Introduction</strong></li>
+                    <ul>
+                        <li class="mb10">Infuse your report with a personalized touch by adding a unique introduction. Share context, objectives, or any other information that sets the stage for your data analysis.</li>
+                    </ul>
+                    <li><strong>View and Download PDFs</strong></li>
+                    <ul>
+                        <li class="mb10">The app opens a built-in PDF viewer within the application, enabling you to instantly view and download your report with a simple click. This feature makes your reports readily accessible for sharing or further analysis, all without leaving the app.</li>
+                    </ul>
+                </ol>
+                <p>The "PDF Maker Section" empowers you to transform your data into visually engaging, well-structured reports that are entirely under your control. Craft, modify, and access your PDF reports seamlessly within the app, ensuring that your data-driven narratives are presented effectively and with convenience.</p>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item mt-3">
+            <h2 class="accordion-header">
+              <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFive"
+              aria-expanded="false"
+              aria-controls="collapseFive"
+              >
+              <h6>Settings</h6>
+            </button>
+          </h2>
+            <div
+            id="collapseFive"
+            class="accordion-collapse collapse"
+            data-bs-parent="#accordionExample"
+            >
+            <div class="accordion-body">
+              <div class="container">
+                <h4><strong>Settings Section: Configure Your App to Suit Your Needs</strong></h4>
+                <p>In the "Settings Section" of your application, you have the ability to fine-tune and personalize your app experience. This section provides you with essential configurations and preferences to ensure the app aligns with your requirements. Here's what you can do:</p>
+                <ol type="1">
+                  <li><strong>Choose Your Web Browser</strong></li>
+                    <ul>
+                        <li class="mb10">Select your preferred web browser for running the app. Your choice of browser allows you to integrate seamlessly with the app, ensuring a familiar and convenient experience.</li>
+                    </ul>
+                    <li><strong>Mapbox API Key</strong></li>
+                    <ul>
+                        <li class="mb10">If you intend to use the location-related features, including the dynamic map generation, simply provide your Mapbox API key. This key allows the app to collect GPS coordinates and display geographical data accurately.</li>
+                    </ul>
+                    <li><strong>User Credentials for Ingatlan.com</strong></li>
+                    <ul>
+                        <li class="mb10">To enable specific scraping functions for the Ingatlan.com website, input your username and email credentials. This information is crucial for accessing the desired data from the site, ensuring a streamlined data collection process.</li>
+                    </ul>
+                </ol>
+                <p>The "Settings Section" puts you in control, enabling you to adapt the app to your unique preferences and requirements. By configuring these basic settings, you can seamlessly integrate the app with your web browser, access location-based features, and unlock specialized web scraping capabilities. Tailor your app experience to suit your needs, making it a valuable tool for your specific use cases.</p>
+              </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<script>
+if (document.querySelector('.active')){
+  document.querySelector('.active').classList.remove('active');
+} else {};
+document.getElementById('{{ nav_link_id }}').classList.add('active');
+
+btn = document.querySelector('button[aria-controls="{{ collapse_item }}"]')
+btn.setAttribute('aria-expanded', 'true')
+btn.classList.remove('collapsed');
+document.getElementById("{{ collapse_item }}").classList.add("show");
+</script>
+        
+{% endblock %}

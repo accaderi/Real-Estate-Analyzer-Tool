@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/df_style.css')}}"
+/>
+{% endblock %} {% block body %}
+<!-- <h1 style="text-align: center;">Tables</h1> -->
+
+<div class="row p-4">
+  <div class="card mb-4 mx-auto" style="width: 90%" data-aos="fade-left">
+    <div class="card-body mt-2 mb-0">
+      <h4 class="mb-4">Dataframe key details</h4>
+      <div class="table-wrapper">{{df_describe_styled | safe}}</div>
+      <br>
+      <p class="card-text">
+        {{titles_txt_orig['df_describe'][2]}}
+      </p>
+    </div>
+  </div>
+  <div class="card mb-4 mx-auto" style="width: 90%" data-aos="fade-left">
+    <div class="card-body mt-2 mb-0">
+      <h4 class="mb-4">Maximum values of all the columns</h4>
+      <div class="table-wrapper">{{df_maxes_styled | safe}}</div>
+      <br>
+      <p class="card-text">
+        {{titles_txt_orig['df_maxes'][2]}}
+      </p>
+    </div>
+  </div>
+  <div class="card mb-4 mx-auto" style="width: 90%" data-aos="fade-left">
+    <div class="card-body mt-2 mb-0">
+      <h4 class="mb-4">Minimum values of all the columns</h4>
+      <div class="table-wrapper">{{df_mins_styled | safe}}</div>
+      <br>
+      <p class="card-text">
+        {{titles_txt_orig['df_mins'][2]}}
+      </p>
+    </div>
+  </div>
+  <div class="card mb-4 mx-auto" style="width: 90%" data-aos="fade-left">
+    <div class="card-body mt-2 mb-0">
+      <h4 class="mb-4">Sorted data by Price > {{ prior_1 }} > {{ prior_2 }}in descending order</h4>
+      <div class="table-wrapper">{{df_heat_maxes_styled | safe}}</div>
+      <br>
+      <p class="card-text">
+        {{titles_txt_orig['df_heat_maxes'][2]}}
+      </p>
+    </div>
+  </div>
+  <div class="card mb-4 mx-auto" style="width: 90%" data-aos="fade-left">
+    <div class="card-body mt-2 mb-0">
+      <h4 class="mb-4">Sorted data by Price > {{ prior_1 }} > {{ prior_2 }}in ascending order</h4>
+      <div class="table-wrapper">{{df_heat_mins_styled | safe}}</div>
+      <br />
+      <p class="card-text">
+        {{titles_txt_orig['df_heat_mins'][2]}}
+      </p>
+    </div>
+  </div>
+  <div class="card mb-4 mx-auto" style="width: 90%" data-aos="fade-left">
+    <div class="card-body mt-2 mb-0">
+      <h4 class="mb-4">Area(s) closest to the mean,
+        <br>8 items descending, 8 items ascending from the mean</h4>
+      <div class="table-wrapper">{{df_mid_styled | safe}}</div>
+      <br />
+      <p class="card-text">
+        {{titles_txt_orig['df_mid'][2]}}
+      </p>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+  if (document.querySelector('.active')){
+    document.querySelector('.active').classList.remove('active');
+  } else {};
+  document.getElementById('nav_data').classList.add('active');
+</script>
+{% endblock %}

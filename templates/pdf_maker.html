@@ -1,0 +1,525 @@
+{% extends "base.html" %}
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-md-center">
+        <div class="accordion" id="accordionGeneral">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseZero"
+                    aria-expanded="true"
+                    aria-controls="collapseZero"
+                    >
+                    <h6>General options</h6>
+                </button>
+            </h2>
+            <div
+            id="collapseZero"
+            class="accordion-collapse collapse show"
+              data-bs-parent="#accordionTable"
+              >
+              <div class="accordion-body">
+                  <div class="form-check form-switch mb-2 mt-3">
+                      <input class="form-check-input selectable" type="checkbox" role="switch" id="cover_title" name="cover_title" checked>
+                      <label class="form-check-label" for="cover_title">&nbsp;Real Estate Analysis</label>
+                    </div>
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input selectable" type="checkbox" role="switch" id="intro" name="intro" checked>
+                        <label class="form-check-label" for="intro">&nbsp;Introduction</label>
+                    </div>
+<form id="pdf_maker_form" method = 'POST' action = "{{url_for('pdf_maker')}}">
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input onoff" type="checkbox" role="switch" id="pg_num" name="pg_num" checked>
+                        <label class="form-check-lab" for="pg_num">&nbsp;Page numbers</label>
+                    </div>
+                    <div class="form-check form-switch mb-2">
+                        <input class="form-check-input onoff" type="checkbox" role="switch" id="pzero_num" name="pzero_num" checked>
+                        <label class="form-check-lab" for="pzero_num">&nbsp;Avoid page number on the first page</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion mt-3" id="accordionTable">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                  >
+                  <h6>Table Selector</h6>
+                </button>
+              </h2>
+              <div
+              id="collapseOne"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#accordionTable"
+              >
+              <div class="accordion-body">
+                <div class="form-check form-switch mb-2 mt-3">
+                <input class="form-check-input required selectable" type="checkbox" role="switch" id="df_describe" name="df_describe" checked>
+                <label class="form-check-label" for="df_describe">&nbsp;Dataframe key details</label>
+                </div>
+                <div class="form-check form-switch mb-2">
+                <input class="form-check-input required selectable" type="checkbox" role="switch" id="df_maxes" name="df_maxes" checked>
+                <label class="form-check-label" for="df_maxes">&nbsp;Maximum values of all the columns</label>
+                </div>
+                <div class="form-check form-switch mb-2">
+                <input class="form-check-input required selectable" type="checkbox" role="switch" id="df_mins" name="df_mins" checked>
+                <label class="form-check-label" for="df_mins">&nbsp;Minimum values of all the columns</label>
+                </div>
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input required selectable mr-3" type="checkbox" role="switch" id="df_heat_maxes" name="df_heat_maxes" checked>
+                    <label class="form-check-label" for="df_heat_maxes">&nbsp;Sorted data by Price > {{ prior_1 }} > {{ prior_2 }}in descending order</label>
+                </div>
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input required selectable mr-3" type="checkbox" role="switch" id="df_heat_mins" name="df_heat_mins" checked>
+                    <label class="form-check-label" for="df_heat_mins">&nbsp;Sorted data by Price > {{ prior_1 }} > {{ prior_2 }}in ascending order</label>
+                </div>
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input required selectable mr-3" type="checkbox" role="switch" id="df_mid" name="df_mid" checked>
+                    <label class="form-check-label" for="df_mid">&nbsp;Middle value / values (closest to the mean of Area) of Area with items descending / ascending</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="accordion mt-3" id="accordionChart">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseTwo"
+          aria-expanded="true"
+          aria-controls="collapseTwo"
+          >
+          <h6>Chart Selector</h6>
+        </button>
+      </h2>
+      <div
+      id="collapseTwo"
+      class="accordion-collapse collapse show"
+      data-bs-parent="#accordionChart"
+      >
+      <div class="accordion-body">
+          <div class="form-check form-switch mb-2 mt-3">
+              <input class="form-check-input required selectable" type="checkbox" role="switch" id="ch_area" name="ch_area" checked>
+              <label class="form-check-label" for="ch_area">&nbsp;Number of properties based on their Areas</label>
+            </div>
+        <div class="form-check form-switch mb-2">
+            <input class="form-check-input required selectable" type="checkbox" role="switch" id="ch_price" name="ch_price" checked>
+            <label class="form-check-label" for="ch_price">&nbsp;Number of properties based on their {{ ch_price }}Prices</label>
+        </div>
+        <div class="form-check form-switch mb-2">
+            <input class="form-check-input required selectable" type="checkbox" role="switch" id="ch_price_color" name="ch_price_color" checked>
+            <label class="form-check-label" for="ch_price_color">&nbsp;Number of properties based on their {{ ch_price_color }}Prices, color coded the no. of rooms</label>
+        </div>
+        <div class="form-check form-switch mb-2">
+            <input class="form-check-input required selectable mr-3" type="checkbox" role="switch" id="ch_unitpr" name="ch_unitpr" checked>
+            <label class="form-check-label" for="ch_unitpr">&nbsp;Number of properties based on their {{ ch_unitpr }}Prices</label>
+        </div>
+        <div class="form-check form-switch mb-2">
+            <input class="form-check-input required selectable mr-3" type="checkbox" role="switch" id="ch_heathist" name="ch_heathist" checked>
+            <label class="form-check-label" for="ch_heathist">&nbsp;{{ ch_price_color }}Prices of properties based on their Areas</label>
+        </div>
+            <div class="form-check form-switch mb-2">
+            <input class="form-check-input required selectable mr-3" type="checkbox" role="switch" id="ch_scatter" name="ch_scatter" checked>
+            <label class="form-check-label" for="ch_scatter">&nbsp;{{ ch_unitpr }}Price in the view of the Area, size: {{ ch_scatter[0] }}, {{ ch_scatter[1] }}</label>
+            </div>  
+        <div class="form-check form-switch mb-2">
+            {% if ChorolJson %}
+        <input class="form-check-input required selectable mr-3" type="checkbox" role="switch" id="ch_choropleth" name="ch_choropleth">
+            {% else %}
+        <input class="form-check-input required selectable mr-3" type="checkbox" role="switch" id="ch_choropleth" name="ch_choropleth" disabled>
+            {% endif %}
+        <label class="form-check-label" for="ch_choropleth">&nbsp;Choropleth showing the Locations</label>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+</form>
+<div class="accordion mt-3" id="accordionTextEditor">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                <h6>Text Editor</h6>
+            </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse show" data-bs-parent="#accordionTextEditor">
+            <div class="accordion-body">
+                <!-- Dropdown at the top -->
+                <div class="d-flex justify-content-center mb-3 mt-4">
+                <select class="form-select" id="text_it" style="width: 21ch; font-style: italic;"></select>
+                </div>
+
+                <!-- Text areas with fixed length and centered -->
+                <div class="d-flex justify-content-center">
+                    <div class="form-group">
+                        <textarea id="text_it_title" class="form-control mb-3" rows="1" cols="68"
+                            maxlength="70" placeholder="Title" style="resize: none;" oninput="removeNewlines(this)"></textarea>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="form-group">
+                        <textarea id="text_it_subtitle" class="form-control mb-3" rows="1" cols="68"
+                            maxlength="70" placeholder="Subtitle" style="resize: none;" oninput="removeNewlines(this)"></textarea>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <div class="form-group">
+                        <textarea id="text_it_description" class="form-control" rows="9" cols="90"
+                            placeholder="Description" style="resize: none;" oninput="manageNewlines(this)"></textarea>
+                    </div>
+                </div>
+
+                <div class="text-center mt-2">
+                    <button id="backToOrig" class="btn btn-primary" onclick="backToOrig()">Back to original
+                    </button>
+                    <button id="sub_text_it_area" class="btn btn-primary ms-2">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-center">
+    <button
+    class="btn fixed_w_btn btn-primary mt-3 ms-2 text-center"
+    id="Submit_pdf"
+    type="submit" onclick="submitFormAndData()">
+    &nbsp;&nbsp;Create&nbsp;Pdf&nbsp;&nbsp;
+  </button>
+  </div>
+</div>
+<!-- <div class="accordion" id="accordionPdfViewer">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                <h6>Pdf Viewer</h6>
+            </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionPdfViewer">
+            <div class="accordion-body">
+                <div class="col mt-3" style="height: 1180px;">
+                    <iframe noresize="noresize" style="height: 100%; width: 100%" src="static/Real_Estate_analysis.pdf">
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div> -->
+
+
+
+<script>
+
+    if (document.querySelector('.active')){
+      document.querySelector('.active').classList.remove('active');
+    } else {};
+    document.getElementById('nav_pdf').classList.add('active');
+
+// Create Pdf button handling, submit only if at least one item checked
+var sub_pdf = document.getElementById('Submit_pdf');
+let checks_list = [];
+checks_inp = document.querySelectorAll('.required');    
+checks_inp.forEach(element => {
+    element.addEventListener('change', function(){
+        checks_list = Array.from(checks).filter(i => i.checked)//.map(i => i.id)
+        // console.log(checks_list)
+        if (checks_list.length) {
+            sub_pdf.disabled = false;
+        } else {
+            sub_pdf.disabled = true;
+        }
+    })
+});
+
+
+function removeNewlines(textarea) {
+    textarea.value = textarea.value.replace(/[\r\n]/g, ''); // Remove newlines
+}
+
+
+function manageNewlines(textarea) {
+    const selectedValue = text_it.value;
+    const maxChars = selectedValue === "intro" ? 97 * 20 : 97 * 9;
+    const maxNewlines = selectedValue === 'intro' ? 19 : 8;
+
+    let text = textarea.value;
+    let charCount = text.length;
+    let newlineCount = (text.match(/\n/g) || []).length;
+
+    if (charCount > maxChars || newlineCount >= maxNewlines) {
+        // If the character count or newline count exceeds the limit, prevent further typing.
+        const lines = text.split("\n");
+        if (lines.length > maxNewlines) {
+            // Remove the last line if it exceeds the limit.
+            lines.pop();
+            text = lines.join("\n");
+        }
+        // Truncate the text to the maximum character limit.
+        text = text.substring(0, maxChars);
+        // Set the textarea value with the adjusted text.
+        textarea.value = text;
+    }
+    
+    // Calculate paragraph length when "Enter" is pressed
+    textarea.addEventListener("keypress", function (event) {
+        if (event.keyCode === 13) { // Enter key
+            const lines = text.split("\n");
+            const lastLine = lines[lines.length - 1];
+            const paragraphLength = lastLine.length;
+            const paragraphLengthRemained = 97 - (paragraphLength % 97);
+            const remainingChars = maxChars - paragraphLengthRemained;
+            
+        }
+    });
+}
+
+let text_new_to = {{ titles_txt | safe }};
+var titles_orig_txt = {{ titles_orig_txt | safe }};
+console.log(text_new_to, titles_orig_txt)
+
+const checks = document.querySelectorAll('.selectable');
+const sub_text_it_area = document.getElementById('sub_text_it_area');
+const text_it = document.getElementById('text_it');
+const text_it_title = document.getElementById('text_it_title');
+const text_it_subtitle = document.getElementById('text_it_subtitle');
+const text_it_description = document.getElementById('text_it_description');
+const checksOnoff = document.querySelectorAll('.onoff');
+
+text_it_title.placeholder = 'Title';
+text_it_subtitle.placeholder = 'Subtitle';
+text_it_description.placeholder = 'Description';
+
+function submitform() {
+    document.getElementById('pdf_maker_form').submit();
+}
+
+function submitFormAndData() {
+    const form = document.getElementById('pdf_maker_form');
+    const formData = new FormData(form);
+
+    const requestBody = {
+        formData: Object.fromEntries(formData),
+        titles_txt: text_new_to,
+    };
+
+    fetch('/pdf_maker', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+    })
+    .then(function (response) {
+            if (response.ok) {
+                response.json()
+                    .then(function (response) {
+                        console.log(response);
+                        // Since post request was handled with fetch meaning not properly returned just parsed
+                        // redirect to the pdf read page from here instead of flask server.
+                        window.location.href = "/pdf_read"
+                    });
+            } else {
+                throw Error('Something went wrong');
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+    
+
+function updateCheckboxesColorsBasedOnTextNewTo() {
+    checks.forEach(check => {
+        const key = check.id; // Checkbox ID
+        const label = document.querySelector(`label[for="${key}"]`);
+
+        if (text_new_to[key]) {
+            if (text_new_to[key][3] === 'blue') {
+                check.checked = true; // Check the checkbox
+                label.style.color = 'blue'; // Set the label text color to blue
+            } else if (text_new_to[key][3] === 'lightblue') {
+                check.checked = false; // Uncheck the checkbox
+                label.style.color = 'lightblue'; // Set the label text color to lightblue
+            } else if (text_new_to[key][3] === 'gainsboro') {
+                check.checked = false; // Uncheck the checkbox
+                label.style.color = 'gainsboro'; // Set the label text color to gainsboro
+            }
+        }
+    });
+}
+
+
+function backToOrig() {
+    text_new_to = {{ titles_orig_txt | safe }};
+    
+    checks.forEach(check => {
+        const key = check.id; // Checkbox ID
+        const label = document.querySelector(`label[for="${key}"]`);
+        
+        if (key === 'ch_choropleth') {
+            check.checked = false;
+            label.style.color = 'gainsboro';
+        } else {
+            check.checked = true;
+            label.style.color = 'black';
+        }
+    });
+    
+    populateDropdown();
+    // Select the default option in the dropdown
+    text_it.selectedIndex = 0;
+
+    // Update the textarea with the placeholder text
+    updateTextArea();
+}
+
+
+// Function to initially populate the dropdown with checked items
+function populateDropdown() {
+    text_it.innerHTML = '';
+
+    // Add a default option with placeholder text
+    const defaultOption = document.createElement("option");
+    defaultOption.text = 'Select an Element';
+    defaultOption.value = '';
+    text_it.appendChild(defaultOption);
+
+    checks.forEach(check => {
+        if (check.checked) {
+            const option = document.createElement("option");
+            option.text = check.id;
+            option.value = check.id;
+            text_it.appendChild(option);
+        }
+    });
+}
+
+// Function to update the textarea
+function updateTextArea() {
+    const selectedValue = text_it.value;
+    if (selectedValue) {
+        text_it_title.value = text_new_to[selectedValue] ? text_new_to[selectedValue][0] : '';
+        text_it_subtitle.value = text_new_to[selectedValue] ? text_new_to[selectedValue][1] : '';
+        text_it_description.value = text_new_to[selectedValue] ? text_new_to[selectedValue][2] : '';
+
+        // Hide the default option when a selection is made
+        text_it.querySelector('option[value=""]').style.display = 'none';
+    } else {
+        text_it_title.value = '';
+        text_it_subtitle.value = '';
+        text_it_description.value = '';
+
+        // Show the default option
+        text_it.querySelector('option[value=""]').style.display = 'block';
+    }
+}
+
+// Function to update the text_new_to when a checkbox is checked or unchecked
+function updateTextNewTo() {
+    checks.forEach(check => {
+        const key = check.id; // Checkbox ID
+        const isChecked = check.checked;
+        const label = document.querySelector(`label[for="${key}"]`);
+
+
+        if (isChecked) {
+            if (text_new_to[key][3] === 'lightblue'){
+                text_new_to[key][3] = 'blue';
+                label.style.color = 'blue';}
+            if (text_new_to[key][3] === 'gainsboro'){
+                text_new_to[key][3] = 'black';
+                label.style.color = 'black';}
+
+            // Checkbox is checked, update text_new_to with its current value
+                    console.log(key, text_new_to[key][3])
+        } else {
+            if (text_new_to[key][3] === 'blue'){
+                text_new_to[key][3] = 'lightblue';
+                label.style.color = 'lightblue';}
+            if (text_new_to[key][3] === 'black'){
+                text_new_to[key][3] = 'gainsboro';
+                label.style.color = 'gainsboro';}
+            // Checkbox is unchecked, set the fourth value to "gainsboro"
+                    console.log(key, text_new_to[key][3])
+        }
+    });
+}
+
+
+// Function to update the labels for checkboxes based on keys in titles_orig_txt
+function updateCheckboxLabels() {
+    checks.forEach(check => {
+        const key = check.id; // Checkbox ID
+        const label = document.querySelector(`label[for="${key}"]`);
+        if (text_new_to[key]) {
+            label.innerHTML = `<em>&nbsp;${key.replace('_', ' ')}:</em> ${text_new_to[key][0]}`;
+        }
+    });
+}
+
+
+// Event listener for onoff switches
+checksOnoff.forEach(check => {
+    check.addEventListener("change", event => {
+        const isChecked = event.target.checked;
+        const label = document.querySelector(`label[for="${event.target.id}"]`);
+        if (isChecked) {label.style.color = 'black';}
+        else{label.style.color = 'gainsboro';}
+    });
+})
+
+
+// Event listener for the "Save" button
+sub_text_it_area.addEventListener("click", () => {
+    const selectedValue = text_it.value;
+    const titleText = text_it_title.value;
+    const subtitleText = text_it_subtitle.value;
+    const descriptionText = text_it_description.value;
+    text_new_to[selectedValue] = [titleText, subtitleText, descriptionText, 'blue'];
+    console.log(selectedValue, text_new_to[selectedValue])
+    const label = document.querySelector(`label[for="${selectedValue}"]`);
+    label.innerHTML = `<em>&nbsp;${selectedValue.replace('_', ' ')}:</em> ${text_new_to[selectedValue][0]}`;
+    label.style.color = 'blue';
+    // console.log(text_new_to);
+});
+
+
+// Event listener for checkbox changes
+checks.forEach(check => {
+    check.addEventListener('change', () => {
+        updateTextNewTo();
+        updateCheckboxLabels(); // Update labels when checkboxes change
+        populateDropdown();
+        updateTextArea();
+    });
+});
+
+
+// Event listener for dropdown change
+text_it.addEventListener("change", updateTextArea);
+
+
+// Initially populate the dropdown, update checkboxes,  with checked items
+populateDropdown();
+updateCheckboxLabels();
+updateCheckboxesColorsBasedOnTextNewTo();
+
+</script>
+{% endblock %}
