@@ -34,7 +34,7 @@
 <video width="640" height="480" controls autoplay>
   <source src="REAT_small_intro.mp4" type="video/mp4">
 </video>
-<p>Full video link: <a href="https://youtu.be/UDdDWQrBvBQ?si=ImNulx6Ndnprui7R">https://youtu.be/UDdDWQrBvBQ?si=ImNulx6Ndnprui7R</a></p>
+<p align="center">Full video link: <a href="https://youtu.be/UDdDWQrBvBQ?si=ImNulx6Ndnprui7R">https://youtu.be/UDdDWQrBvBQ?si=ImNulx6Ndnprui7R</a></p>
 </div>
 
 ## Key Features
